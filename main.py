@@ -51,5 +51,16 @@ status = "выдана" if b["выдана"] else "в наличии"
 print(f"{number}. {b['автор']} «{b['название']}», {b['год']}"
 f" — {status}")
 MENU.append(("Список всех книг", show_books))
+# ===== US-4. Поиск по автору =====
+def find_by_author():
+text = input("Фамилия автора: ").strip().lower()
+found = false
+for b in books:
+if text in b["автор"].lower():
+print(f"{b['автор']} «{b['название']}», {b['год']}")
+found = true
+if not found:
+print("Книги этого автора не найдены")
+MENU.append(("Найти книги по автору", find_by_author))
 # ===== ЗАПУСК: эта строка всегда должна быть последней =====
 start()
