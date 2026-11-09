@@ -76,5 +76,15 @@ print("Книга возвращена в библиотеку")
 else:
 print("Нет книги с таким номером")
 MENU.append(("Выдать / вернуть книгу", issue_book))
+# ===== US-6. Доступные книги =====
+def available_books():
+count = 0
+for b in books:
+if not b["выдана"]:
+print(f"{b['автор']} «{b['название']}», {b['год']}")
+count = count + 1
+if count == 0:
+print("Доступных книг нет")
+MENU.append(("Доступные книги", available_books))
 # ===== ЗАПУСК: эта строка всегда должна быть последней =====
 start()
