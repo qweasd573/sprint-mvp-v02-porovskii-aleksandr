@@ -31,5 +31,15 @@ elif choice.isdigit() and 1 <= int(choice) <= len(MENU):
 MENU[int(choice) - 1][1]()
 else:
 print("Нет такого пункта меню")
+# ===== US-2. Добавить книгу =====
+books = [] # список книг
+def add_book():
+title = input("Название: ").strip()
+author = input("Автор (фамилия и инициалы): ").strip()
+year = ask_int("Год издания: ")
+books.append({"название": title, "автор": author, "год": year,
+"выдана": False})
+print("Книга добавлена в каталог")
+MENU.append(("Добавить книгу", add_book))
 # ===== ЗАПУСК: эта строка всегда должна быть последней =====
 start()
