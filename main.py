@@ -62,5 +62,19 @@ found = true
 if not found:
 print("Книги этого автора не найдены")
 MENU.append(("Найти книги по автору", find_by_author))
+# ===== US-5. Выдать / вернуть книгу =====
+def issue_book():
+show_books()
+number = ask_int("Номер книги: ")
+if 1 <= number <= len(books):
+book = books[number - 1]
+book["выдана"] = not book["выдана"]
+if book["выдана"]:
+print("Книга выдана читателю")
+else:
+print("Книга возвращена в библиотеку")
+else:
+print("Нет книги с таким номером")
+MENU.append(("Выдать / вернуть книгу", issue_book))
 # ===== ЗАПУСК: эта строка всегда должна быть последней =====
 start()
