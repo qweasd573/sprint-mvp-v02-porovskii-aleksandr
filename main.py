@@ -41,5 +41,15 @@ books.append({"название": title, "автор": author, "год": year,
 "выдана": False})
 print("Книга добавлена в каталог")
 MENU.append(("Добавить книгу", add_book))
+# ===== US-3. Список всех книг =====
+def show_books():
+if len(books) == 0:
+print("Каталог пуст")
+return
+for number, b in enumerate(books, start=1):
+status = "выдана" if b["выдана"] else "в наличии"
+print(f"{number}. {b['автор']} «{b['название']}», {b['год']}"
+f" — {status}")
+MENU.append(("Список всех книг", show_books))
 # ===== ЗАПУСК: эта строка всегда должна быть последней =====
 start()
